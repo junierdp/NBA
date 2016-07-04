@@ -2,12 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>NBA - Team</title>
+	<title>NBA - User</title>
 	<style type="text/css">
 		body{
 			background-image: url("images/BackgroundNBA.jpg");
 			background-size: 100%;
 		}
+
 	</style>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -46,13 +47,16 @@
 
 	<?php
 		$html = "<div class=\"container\">";
-		foreach($teams as $team){
-			$linkUpdate = base_url("/team/update/?id={$team->teamID}");
-			$linkDelete = base_url("/team/delete/?id={$team->teamID}");
-			$html .= "<div style=\"height: 350px;\" class=\"col-md-3 well\">";
-			$html .= "<img style=\"height: 190px; width: 100%;\" class=\"img-responsive img-thumbnail\" src=\"{$team->image}\"/>";
-			$html .= "<h3 class=\"text-primary\">{$team->teamName}</h3>";
-			$html .= "<h3 class=\"text-primary\">{$team->city}</h3>";
+
+		foreach($users as $user){
+			$linkUpdate = base_url("/user/update/?id={$user->userID}");
+			$linkDelete = base_url("/user/delete/?id={$user->userID}");
+			$html .= "<div style=\"height: 400px;\" class=\"col-md-3 well\">";
+			$html .= "<img style=\"height: 190px; width: 100%;\" class=\"img-responsive img-thumbnail\" src=\"{$user->imageUser}\"/>";
+			$html .= "<h4 class=\"text-primary\">First Name: {$user->firstName}</h4>";
+			$html .= "<h4 class=\"text-primary\">Last Name: {$user->lastName}</h4>";
+			$html .= "<h4 class=\"text-primary\">Username: {$user->userName}</h4>";
+			$html .= "<h4 class=\"text-primary\">Email: {$user->email}</h4>";
 			$html .= "<a href=\"{$linkUpdate}\"><span class=\"label label-default\">Modify</span></a>";
 			$html .= " <a href=\"{$linkDelete}\"><span class=\"label label-danger\">Delete</span></a>";
 			$html .= "</div>";
@@ -61,4 +65,3 @@
 		echo $html;
 	?>
 </body>
-</html>

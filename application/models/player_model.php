@@ -58,7 +58,6 @@
 				unset($player->playerID);
 				$this->db->update('player', $player);
 			}
-			var_dump($player);
 		}
 	}
 ?>

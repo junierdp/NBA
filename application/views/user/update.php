@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>NBA - Team</title>
+	<title>NBA - User</title>
 	<style type="text/css">
 		body{
 			background-image: url("images/BackgroundNBA.jpg");
@@ -46,22 +46,39 @@
 
 	<div class="container">
 		<div class="row col-md-offset-2">
-			<form method="post" action="<?php echo base_url('team/insert');?>" enctype="multipart/form-data" autocomplete="off" >
+			<form method="post" action="<?php echo base_url('user/update');?>" autocomplete="off" required enctype="multipart/form-data" >
 				<div class="col-md-9">
 					<div class="form-group input-group has-success">
-						<span class="input-group-addon">Name:</span>
-						<input type="text" name="teamName" class="form-control input-lg" required>
+						<span class="input-group-addon">ID:</span>
+						<input type="text" name="userID" class="form-control input-lg" value="<?php echo $user->userID?>" readonly required>
 					</div>
 					<div class="form-group input-group has-success">
-						<span class="input-group-addon">City:</span>
-						<input type="text" name="city" class="form-control input-lg" required>
+						<span class="input-group-addon">First Name:</span>
+						<input type="text" name="firstName" class="form-control input-lg" value="<?php echo $user->firstName?>" required>
 					</div>
-					<div class="form-group has-success">
-						<input type="file" class="form-control input-lg" name="image" id="image" required>
+					<div class="form-group input-group has-success">
+						<span class="input-group-addon">Last Name:</span>
+						<input type="text" name="lastName" class="form-control input-lg" value="<?php echo $user->lastName?>" required>
 					</div>
-					<div class="form-group col-md-offset-8">
-						<button class="btn btn-danger btn-lg" type="reset">Cancel</button>
-						<button class="btn btn-success btn-lg" type="submit">Insert</button>
+					<div class="form-group input-group has-success">
+						<span class="input-group-addon">Username:</span>
+						<input type="text" name="userName" class="form-control input-lg" value="<?php echo $user->userName?>" required>
+					</div>
+					<div class="form-group input-group has-success">
+						<span class="input-group-addon">Email:</span>
+						<input type="text" name="email" class="form-control input-lg" value="<?php echo $user->email?>" required>
+					</div>
+					<div class="form-group input-group has-success">
+						<span class="input-group-addon">Password:</span>
+						<input type="password" name="pass" class="form-control input-lg" value="<?php echo $user->pass?>" required>
+					</div>
+					<div class="form-group has-success input-group">
+						<span class="input-group-addon">Photo:</span>
+						<input type="file" class="form-control input-lg" name="imageUser" id="imageUser" required>
+					</div>
+					<div class="form-group col-md-offset-9">
+						<button class="btn btn-danger" type="reset">Cancel</button>
+						<button class="btn btn-success" type="submit">Save</button>
 					</div>
 				</div>
 			</form>

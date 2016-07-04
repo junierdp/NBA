@@ -3,14 +3,13 @@
 		public function __Construct(){
 			parent::__Construct();
 
-			$this->load->helper('url');
-			$this->load->model('team_model');
+			$this->load->model('Team_model');
 		}
 
 		function index(){
 			$data = array();
 
-			$data['teams'] = $this->team_model->show();
+			$data['teams'] = $this->Team_model->show();
 
 			$this->load->view('team/index', $data);
 		}
@@ -29,7 +28,7 @@
 				copy($route, $destination);
 				$team->image = $destination;
 
-				$this->team_model->insert($team);
+				$this->Team_model->insert($team);
 			}
 		}
 
@@ -43,7 +42,7 @@
 				$id = 0;
 			}
 
-			$data['team'] = $this->team_model->getTeam($id);
+			$data['team'] = $this->Team_model->getTeam($id);
 
 			$team = new stdClass();
 			if($_POST){
@@ -58,7 +57,7 @@
 				copy($route, $destination);
 				$team->image = $destination;
 
-				$this->team_model->update($team);
+				$this->Team_model->update($team);
 			}
 
 			$this->load->view('team/update', $data);
@@ -75,7 +74,7 @@
 			echo "<script languaje='javascript'>
 		    confirm('Are you sure that you want to delete this team');
 		   </script>";
-			$this->team_model->delete($id);
+			$this->Team_model->delete($id);
 			$this->index();
 		}
 	}
